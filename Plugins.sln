@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StarSandPanel", "StarSandPanel\StarSandPanel.vcxproj", "{25EB8E56-32C0-43AA-85CB-1377291D1CB4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BF01F8CA-EBFD-4334-AED1-63CDA8CA425F} = {BF01F8CA-EBFD-4334-AED1-63CDA8CA425F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StarSandExporter", "StarSandExporter\StarSandExporter.vcxproj", "{BF01F8CA-EBFD-4334-AED1-63CDA8CA425F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DLL_Debug|x64 = DLL_Debug|x64
+		DLL_Release|x64 = DLL_Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25EB8E56-32C0-43AA-85CB-1377291D1CB4}.DLL_Debug|x64.ActiveCfg = DLL_Debug|x64
+		{25EB8E56-32C0-43AA-85CB-1377291D1CB4}.DLL_Release|x64.ActiveCfg = DLL_Release|x64
+		{25EB8E56-32C0-43AA-85CB-1377291D1CB4}.DLL_Release|x64.Build.0 = DLL_Release|x64
+		{BF01F8CA-EBFD-4334-AED1-63CDA8CA425F}.DLL_Debug|x64.ActiveCfg = DLL_Debug|x64
+		{BF01F8CA-EBFD-4334-AED1-63CDA8CA425F}.DLL_Release|x64.ActiveCfg = DLL_Release|x64
+		{BF01F8CA-EBFD-4334-AED1-63CDA8CA425F}.DLL_Release|x64.Build.0 = DLL_Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

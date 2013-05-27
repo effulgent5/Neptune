@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <MaxSDKDir>$(SolutionDir)ThirdCode\MaxSDK\</MaxSDKDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetExt>.dle</TargetExt>
+    <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MaxSDKDir)include\;$(SolutionDir)StarSandExporter\;$(SolutionDir)StarSandPanel\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MaxSDKDir)x64\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(SolutionDir)Binary\$(Configuration)\$(TargetFileName) "$(ADSK_3DSMAX_x64_2012)Plugins\"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="MaxSDKDir">
+      <Value>$(MaxSDKDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

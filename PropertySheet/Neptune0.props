@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BinaryDir>$(SolutionDir)Binary\</BinaryDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)\kiEngine\;$(SolutionDir)\kiRenderer\;$(SolutionDir)\kiRenderer\Math\;$(SolutionDir)\kiEngine\Interface\;$(SolutionDir)\kiRenderer\Interface\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BinaryDir)$(Configuration)\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\;$(SolutionDir)Engine\RenderObject\;$(SolutionDir)Common\;$(SolutionDir)Common\FileIO\;$(SolutionDir)Memory\;$(SolutionDir)Renderer\;$(SolutionDir)Renderer\Pipeline\;$(SolutionDir)Script\;$(SolutionDir)Script\Lua521\;$(SolutionDir)Common\Input\;$(SolutionDir)Renderer\Interface\;$(SolutionDir)Engine\Interface\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(BinaryDir)$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user32.lib;kernel32.lib;ntdll.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="BinaryDir">
+      <Value>$(BinaryDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

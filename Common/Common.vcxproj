@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DLL_Debug|Win32">
+      <Configuration>DLL_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL_Release|Win32">
+      <Configuration>DLL_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A70D09EC-2298-4E78-9753-17B89101C59F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>kiCommon</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\PropertySheet\Neptune0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\PropertySheet\Neptune0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="..\propertySheet\Neptune0.props" />
+    <Import Project="..\propertySheet\Neptune0.props" />
+    <Import Project="..\propertySheet\Neptune0.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>COMMON_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Memory.lib;dinput8.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>COMMON_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Memory.lib;dinput8.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="commonCommon.h" />
+    <ClInclude Include="commonDefines.h" />
+    <ClInclude Include="FileIO\kiCommonFileStruct.h" />
+    <ClInclude Include="FileIO\kiFile.h" />
+    <ClInclude Include="FileIO\kiFileUtility.h" />
+    <ClInclude Include="FileIO\kiMeshParse.h" />
+    <ClInclude Include="Input\kiInput.h" />
+    <ClInclude Include="Input\kiInputDefines.h" />
+    <ClInclude Include="Input\kiInputTrans.h" />
+    <ClInclude Include="Input\kiKeyboard.h" />
+    <ClInclude Include="Input\kiMessageClient.h" />
+    <ClInclude Include="Input\kiMessageDefines.h" />
+    <ClInclude Include="Input\kiMouse.h" />
+    <ClInclude Include="kiLock.h" />
+    <ClInclude Include="Math\kAABB.h" />
+    <ClInclude Include="Math\kFrustum.h" />
+    <ClInclude Include="Math\kGeom.h" />
+    <ClInclude Include="Math\kiTransform.h" />
+    <ClInclude Include="Math\kMath.h" />
+    <ClInclude Include="Math\kMatrix.h" />
+    <ClInclude Include="Math\kQuaternion.h" />
+    <ClInclude Include="Math\kUtilities.h" />
+    <ClInclude Include="Math\kVec.h" />
+    <ClInclude Include="Memory\kiMemObject.h" />
+    <ClInclude Include="systemCommon.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="FileIO\kiFile.cpp" />
+    <ClCompile Include="FileIO\kiFileUtility.cpp" />
+    <ClCompile Include="FileIO\kiMeshParse.cpp" />
+    <ClCompile Include="Input\kiInput.cpp" />
+    <ClCompile Include="Input\kiInputTrans.cpp" />
+    <ClCompile Include="Input\kiKeyboard.cpp" />
+    <ClCompile Include="Input\kiMessageClient.cpp" />
+    <ClCompile Include="Input\kiMouse.cpp" />
+    <ClCompile Include="kiCommon.cpp" />
+    <ClCompile Include="kiLock.cpp" />
+    <ClCompile Include="Math\kAABB.cpp" />
+    <ClCompile Include="Math\kFrustum.cpp" />
+    <ClCompile Include="Math\kGeom.cpp" />
+    <ClCompile Include="Math\kiTransform .cpp" />
+    <ClCompile Include="Math\kMath.cpp" />
+    <ClCompile Include="Math\kQuaternion.cpp" />
+    <ClCompile Include="Math\kUtilities.cpp" />
+    <ClCompile Include="Math\kVec.cpp" />
+    <ClCompile Include="Memory\kiMemObject.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

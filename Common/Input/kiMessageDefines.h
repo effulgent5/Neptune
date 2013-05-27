@@ -1,0 +1,8 @@
+#pragma once
+
+#define  MSG_CAMERA_MOVE_LEFT 0
+#define  MSG_CAMERA_MOVE_RIGHT 1
+#define  MSG_CAMERA_MOVE_UP 2
+#define  MSG_CAMERA_MOVE_DOWN 3
+#define  MSG_CAMERA_MOVE_FRONT 4
+#define  MSG_CAMERA_MOVE_BACK 5

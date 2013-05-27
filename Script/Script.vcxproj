@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DLL_Debug|Win32">
+      <Configuration>DLL_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DLL_Release|Win32">
+      <Configuration>DLL_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E022FB06-D6D1-463F-8C05-14D4F85274FD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>kiScript</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\propertySheet\Neptune0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\propertySheet\Neptune0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="..\propertySheet\Neptune0.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>SCRIPT_EXPORT;_CRT_SECURE_NO_WARNINGS;_WIN32;_MBCS;MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;KISCRIPT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lua521\lapi.h" />
+    <ClInclude Include="Lua521\lauxlib.h" />
+    <ClInclude Include="Lua521\lcode.h" />
+    <ClInclude Include="Lua521\lctype.h" />
+    <ClInclude Include="Lua521\ldebug.h" />
+    <ClInclude Include="Lua521\ldo.h" />
+    <ClInclude Include="Lua521\lfunc.h" />
+    <ClInclude Include="Lua521\lgc.h" />
+    <ClInclude Include="Lua521\llex.h" />
+    <ClInclude Include="Lua521\llimits.h" />
+    <ClInclude Include="Lua521\lmem.h" />
+    <ClInclude Include="Lua521\lobject.h" />
+    <ClInclude Include="Lua521\lopcodes.h" />
+    <ClInclude Include="Lua521\lparser.h" />
+    <ClInclude Include="Lua521\lstate.h" />
+    <ClInclude Include="Lua521\lstring.h" />
+    <ClInclude Include="Lua521\ltable.h" />
+    <ClInclude Include="Lua521\ltm.h" />
+    <ClInclude Include="Lua521\lua.h" />
+    <ClInclude Include="Lua521\lua.hpp" />
+    <ClInclude Include="Lua521\luaconf.h" />
+    <ClInclude Include="Lua521\lualib.h" />
+    <ClInclude Include="Lua521\lundump.h" />
+    <ClInclude Include="Lua521\lvm.h" />
+    <ClInclude Include="Lua521\lzio.h" />
+    <ClInclude Include="scriptCommon.h" />
+    <ClInclude Include="scriptDefines.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL_Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DLL_Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="kiScript.cpp" />
+    <ClCompile Include="Lua521\lapi.c" />
+    <ClCompile Include="Lua521\lauxlib.c" />
+    <ClCompile Include="Lua521\lbaselib.c" />
+    <ClCompile Include="Lua521\lbitlib.c" />
+    <ClCompile Include="Lua521\lcode.c" />
+    <ClCompile Include="Lua521\lcorolib.c" />
+    <ClCompile Include="Lua521\lctype.c" />
+    <ClCompile Include="Lua521\ldblib.c" />
+    <ClCompile Include="Lua521\ldebug.c" />
+    <ClCompile Include="Lua521\ldo.c" />
+    <ClCompile Include="Lua521\ldump.c" />
+    <ClCompile Include="Lua521\lfunc.c" />
+    <ClCompile Include="Lua521\lgc.c" />
+    <ClCompile Include="Lua521\linit.c" />
+    <ClCompile Include="Lua521\liolib.c" />
+    <ClCompile Include="Lua521\llex.c" />
+    <ClCompile Include="Lua521\lmathlib.c" />
+    <ClCompile Include="Lua521\lmem.c" />
+    <ClCompile Include="Lua521\loadlib.c" />
+    <ClCompile Include="Lua521\lobject.c" />
+    <ClCompile Include="Lua521\lopcodes.c" />
+    <ClCompile Include="Lua521\loslib.c" />
+    <ClCompile Include="Lua521\lparser.c" />
+    <ClCompile Include="Lua521\lstate.c" />
+    <ClCompile Include="Lua521\lstring.c" />
+    <ClCompile Include="Lua521\lstrlib.c" />
+    <ClCompile Include="Lua521\ltable.c" />
+    <ClCompile Include="Lua521\ltablib.c" />
+    <ClCompile Include="Lua521\ltm.c" />
+    <ClCompile Include="Lua521\lundump.c" />
+    <ClCompile Include="Lua521\lvm.c" />
+    <ClCompile Include="Lua521\lzio.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,26 @@
+struct VS_INPUT
+{
+	float4 pos		: SV_POSITION;
+	float4 nor		: NORMAL;
+	float4 tgt		: TANGENT;
+	uint   bi		: BLENDINDICES;
+	uint   bw		: BLENDWEIGHT;
+};
+
+struct VS_OUTPUT
+{
+	float4 projPos	: SV_POSITION;
+	float4 tex0		: TEXCOORD0;
+	float4 tex1		: TEXCOORD1;
+	float2 tex2		: TEXCOORD2;
+};
+
+VS_OUTPUT main(VS_INPUT input)
+{
+	VS_OUTPUT output;
+	output.projPos = input.pos;
+	output.tex0 = input.nor;
+	output.tex1 = input.tgt;
+	output.tex2 = float2(float(input.bi), float(input.bw));
+	return output;
+}

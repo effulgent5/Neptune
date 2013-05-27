@@ -1,0 +1,70 @@
+#include "0007#common.h"
+
+//#define MATERIAL_FLAG 0x00000001
+
+#undef SKINNED
+
+#if TEST_FLAG(MATERIAL_FLAG, CHL_SKINNED)
+	#define SKINNED 1
+#else
+	#define SKINNED 0
+#endif
+
+struct VS_INPUT
+{
+	float4 pos		: SV_POSITION;
+	float4 nor		: NORMAL;
+	float4 tgt		: TANGENT;
+#if SKINNED
+	uint   bi		: BLENDINDICES;
+	uint   bw		: BLENDWEIGHT;
+#endif
+};
+
+struct VS_OUTPUT
+{
+	float4 projPos	: SV_POSITION;
+	float2 tex0		: TEXCOORD0;
+	float4 viewNor	: TEXCOORD1;
+	float4 viewTgt	: TEXCOORD2;
+	float4 viewBin	: TEXCOORD3;
+};
+
+VS_OUTPUT main(VS_INPUT input)
+{
+	VS_OUTPUT output;
+	output.tex0 = float2(input.nor.w, input.tgt.w);
+	int binSign = asint(input.pos.w) - 1;
+	float3 bin = cross(input.nor.xyz, input.tgt.xyz) * binSign;
+
+#if SKINNED
+	///< decode bw and bi
+	uint b0 = (input.bi & 0x000003ff);
+	uint b1 = ((input.bi >> 10) & 0x000003ff);
+	uint b2 = ((input.bi >> 20) & 0x000003ff);
+
+	float w0 = (float)(input.bw & 0x000003ff) / 1024.f;
+	float w1 = (float)((input.bw >> 10) & 0x000003ff) / 1024.f;
+	float w2 = (float)((input.bw >> 20) & 0x000003ff) / 1024.f;
+
+	float4x4 worldView = mul(g_world, g_view);
+	float4 viewPos = mul(float4(input.pos.xyz, 1.0f), worldView);
+	output.projPos = mul(viewPos, g_proj);
+
+	output.viewNor = mul(float4(input.nor.xyz, 0), worldView);
+	output.viewTgt = mul(float4(input.tgt.xyz, 0), worldView);
+	output.viewBin = mul(float4(bin.xyz, 0), worldView);
+#else
+	float4x4 worldView = mul(g_world, g_view);
+	float4 viewPos = mul(float4(input.pos.xyz, 1.0f), worldView);
+	output.projPos = mul(viewPos, g_proj);
+
+	output.viewNor = mul(float4(input.nor.xyz, 0), worldView);
+	output.viewTgt = mul(float4(input.tgt.xyz, 0), worldView);
+	output.viewBin = mul(float4(bin.xyz, 0), worldView);
+#endif
+
+	return output;
+}
+
+#undef MATERIAL_FLAG

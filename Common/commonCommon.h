@@ -1,0 +1,18 @@
+#pragma once
+#include "systemCommon.h"
+#include "commonDefines.h"
+
+#include "scriptCommon.h"
+#include "Memory/kiMemObject.h"
+#include "Math/kMath.h"
+#include "Math/kVec.h"
+#include "Math/kQuaternion.h"
+#include "Math/kGeom.h"
+#include "Math/kFrustum.h"
+#include "FileIO/kiFile.h"
+#include "FileIO/kiCommonFileStruct.h"
+#include "FileIO/kiMeshParse.h"
+#include "kiFileUtility.h"
+#include "kiLock.h"
+#include "kiInput.h"
+#include "kiMessageClient.h"
